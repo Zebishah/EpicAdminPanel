@@ -41,16 +41,16 @@ const AddServiceIternaries = () => {
   };
   return (
     <>
-      <div className="landing-page h-screen flex flex-col space-y-6 justify-center items-center w-full ">
-        <h1 className="text-yellows text-5xl font-joining bg-light-black bg-opacity-70 p-4 rounded-lg shadow-lg shadow-yellows">
+      <div className="flex flex-col items-center justify-center w-full h-screen space-y-6 landing-page ">
+        <h1 className="p-4 text-5xl rounded-lg shadow-lg text-yellows font-joining bg-light-black bg-opacity-70 shadow-yellows">
           Add Tour Services
         </h1>
-        <div className="container mx-auto p-4">
+        <div className="container p-4 mx-auto">
           <form
-            className="bg-fade-black p-8 rounded-lg shadow-lg"
+            className="p-8 rounded-lg shadow-lg bg-fade-black"
             onSubmit={handleSubmit}
           >
-            <h2 className="text-2xl mb-4 text-yellows">Add Tour Information</h2>
+            <h2 className="mb-4 text-2xl text-yellows">Add Tour Information</h2>
 
             <div className="mb-4">
               <label className="block mb-2 text-yellows">Tour ID</label>
@@ -187,7 +187,7 @@ const AddServiceIternaries = () => {
 
             <button
               type="submit"
-              className="w-full bg-yellows text-black p-2 rounded"
+              className="w-full p-2 text-black rounded bg-yellows"
             >
               Submit
             </button>

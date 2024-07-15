@@ -92,31 +92,31 @@ const ProfileSettings = () => {
   return (
     <>
       <ToastContainer />
-      <div className="flex flex-col flex-grow p-6 items-center justify-center">
-        <h1 className="text-yellows smd:text-4xl text-xs font-joining bg-light-black bg-opacity-60 p-4 rounded-lg shadow-lg shadow-yellows">
+      <div className="flex flex-col items-center justify-center flex-grow p-6">
+        <h1 className="p-4 text-xs rounded-lg shadow-lg text-yellows smd:text-4xl font-joining bg-light-black bg-opacity-60 shadow-yellows">
           Admin Profile
         </h1>
         <div className="container max-w-screen-lg mx-auto ">
-          <h2 className="font-radios font-semibold smd:text-xl text-xs text-yellows bg-light-black bg-opacity-60 p-3 rounded-lg w-max">
+          <h2 className="p-3 text-xs font-semibold rounded-lg font-radios smd:text-xl text-yellows bg-light-black bg-opacity-60 w-max">
             Update info
           </h2>
-          <p className="font-radios text-white mb-6 bg-light-black bg-opacity-60 p-3 rounded-lg w-max mt-1">
+          <p className="p-3 mt-1 mb-6 text-white rounded-lg font-radios bg-light-black bg-opacity-60 w-max">
             Update your personal info here.
           </p>
 
-          <div className="bg-fade-black rounded shadow-lg p-4 px-4 md:p-8 mb-6">
+          <div className="p-4 px-4 mb-6 rounded shadow-lg bg-fade-black md:p-8">
             <form onSubmit={handleSubmit}>
-              <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
+              <div className="grid grid-cols-1 gap-4 text-sm gap-y-2 lg:grid-cols-3">
                 <div className="text-yellows">
-                  <p className="font-medium text-lg">Personal Details</p>
+                  <p className="text-lg font-medium">Personal Details</p>
                   <p className="text-white">Please fill out all the fields.</p>
                 </div>
                 <div className="lg:col-span-2">
-                  <div className="grid gap-4 gap-y-8 text-sm grid-cols-1 md:grid-cols-5">
+                  <div className="grid grid-cols-1 gap-4 text-sm gap-y-8 md:grid-cols-5">
                     <div className="md:col-span-5">
                       <label
                         htmlFor="fullName"
-                        className="text-yellows text-lg font-radios"
+                        className="text-lg text-yellows font-radios"
                       >
                         Full Name
                       </label>
@@ -124,7 +124,7 @@ const ProfileSettings = () => {
                         type="text"
                         name="fullName"
                         id="fullName"
-                        className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                        className="w-full h-10 px-4 mt-1 border rounded bg-gray-50"
                         value={userName}
                         onChange={handleUserName}
                       />
@@ -132,7 +132,7 @@ const ProfileSettings = () => {
                     <div className="md:col-span-5">
                       <label
                         htmlFor="email"
-                        className="text-yellows text-lg font-radios"
+                        className="text-lg text-yellows font-radios"
                       >
                         Email Address
                       </label>
@@ -140,7 +140,7 @@ const ProfileSettings = () => {
                         type="email"
                         name="email"
                         id="email"
-                        className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                        className="w-full h-10 px-4 mt-1 border rounded bg-gray-50"
                         value={email}
                         disabled
                       />
@@ -148,7 +148,7 @@ const ProfileSettings = () => {
                     <div className="md:col-span-3">
                       <label
                         htmlFor="address"
-                        className="text-yellows text-lg font-radios"
+                        className="text-lg text-yellows font-radios"
                       >
                         Address / Street
                       </label>
@@ -156,7 +156,7 @@ const ProfileSettings = () => {
                         type="text"
                         name="address"
                         id="address"
-                        className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                        className="w-full h-10 px-4 mt-1 border rounded bg-gray-50"
                         value={formData.address}
                         onChange={handleChange}
                       />
@@ -164,7 +164,7 @@ const ProfileSettings = () => {
                     <div className="md:col-span-2">
                       <label
                         htmlFor="city"
-                        className="text-yellows text-lg font-radios"
+                        className="text-lg text-yellows font-radios"
                       >
                         City
                       </label>
@@ -172,7 +172,7 @@ const ProfileSettings = () => {
                         type="text"
                         name="city"
                         id="city"
-                        className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                        className="w-full h-10 px-4 mt-1 border rounded bg-gray-50"
                         value={formData.city}
                         onChange={handleChange}
                       />
@@ -180,16 +180,16 @@ const ProfileSettings = () => {
                     <div className="md:col-span-2">
                       <label
                         htmlFor="phoneNo"
-                        className="text-yellows text-lg font-radios"
+                        className="text-lg text-yellows font-radios"
                       >
                         Phone-No
                       </label>
-                      <div className="h-10 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
+                      <div className="flex items-center h-10 mt-1 border border-gray-200 rounded bg-gray-50">
                         <input
                           name="phoneNo"
                           id="phoneNo"
                           placeholder="Phone-No"
-                          className="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent"
+                          className="w-full px-4 text-gray-800 bg-transparent outline-none appearance-none"
                           value={formData.phoneNo}
                           onChange={handleChange}
                         />
@@ -198,16 +198,16 @@ const ProfileSettings = () => {
                     <div className="md:col-span-2">
                       <label
                         htmlFor="image"
-                        className="text-yellows text-lg font-radios"
+                        className="text-lg text-yellows font-radios"
                       >
                         Image
                       </label>
-                      <div className="h-10 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
+                      <div className="flex items-center h-10 mt-1 border border-gray-200 rounded bg-gray-50">
                         <input
                           type="file"
                           name="image"
                           id="image"
-                          className="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent"
+                          className="w-full px-4 text-gray-800 bg-transparent outline-none appearance-none"
                           onChange={handleImageChange}
                         />
                       </div>
@@ -215,19 +215,19 @@ const ProfileSettings = () => {
                         <img
                           src={formData.imageUrl}
                           alt="Preview"
-                          className="mt-2 h-20 w-20 object-cover rounded"
+                          className="object-cover w-20 h-20 mt-2 rounded"
                         />
                       )}
                     </div>
 
-                    <div className="md:col-span-5 text-right">
+                    <div className="text-right md:col-span-5">
                       <div className="inline-flex items-end">
                         <button
                           type="button"
                           onClick={handleSubmit}
                           className=" mt-4 w-auto hover:before:bg-red rounded-xl relative h-[50px] overflow-hidden border border-yellows bg-light-black px-3 text-yellows shadow-lg transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-white before:transition-all before:duration-500 hover:text-black hover:shadow-yellow-400 hover:before:left-0 hover:before:w-full"
                         >
-                          <span className="relative z-10 text-radios text-lg">
+                          <span className="relative z-10 text-lg text-radios">
                             Submit
                           </span>
                         </button>

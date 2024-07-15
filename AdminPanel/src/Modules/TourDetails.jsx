@@ -74,19 +74,19 @@ const TourDetails = () => {
 
   return (
     <div className="flex flex-col justify-center gap-y-10 p-6 items-center w-[80%]">
-      <h1 className="text-yellows text-4xl font-bold my-10 bg-fade-black p-4 rounded-xl">
+      <h1 className="p-4 my-10 text-4xl font-bold text-yellows bg-fade-black rounded-xl">
         Tour Bookings
       </h1>
       <div className="bg-fade-black shadow-yellows rounded-lg shadow overflow-hidden sm:rounded-lg w-[80%]">
-        <div className="px-4 py-5 sm:px-6 w-full">
-          <h3 className="text-lg leading-6 font-medium text-yellows">
+        <div className="w-full px-4 py-5 sm:px-6">
+          <h3 className="text-lg font-medium leading-6 text-yellows">
             Tours Database
           </h3>
           <p className="mt-1 text-sm text-white">
             Details and information about Tour.
           </p>
         </div>
-        <div className="border-t border-gray-200 w-full flex justify-center items-center">
+        <div className="flex items-center justify-center w-full border-t border-gray-200">
           <dl className="flex flex-col">
             <div className="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
               <dt className="text-sm font-medium text-yellows font-radios">

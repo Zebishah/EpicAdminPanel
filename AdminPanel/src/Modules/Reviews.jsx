@@ -1,76 +1,63 @@
-import image from "../images/man-user-circle-icon.png";
+import { useState, useEffect } from "react";
+import axios from "axios";
+
 const Reviews = () => {
+  const [reviews, setReviews] = useState([]);
+
+  useEffect(() => {
+    const fetchReviews = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:5000/Admin/reviews",
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        setReviews(response.data.reviews);
+      } catch (error) {
+        console.error("Error fetching reviews:", error);
+      }
+    };
+
+    fetchReviews();
+  }, []); // Empty dependency array means this effect runs only once on msount
+
   return (
-    <div className="flex flex-col gap-y-8 w-full h-auto items-center justify-center">
-      <h1 className="text-yellows text-5xl font-joining text-center ">
+    <div className="flex flex-col items-center justify-center w-full h-auto gap-y-8">
+      <h1 className="text-5xl text-center text-yellows font-joining">
         Reviews
       </h1>
-      <div className="flex flex-col justify-center items-center space-y-10 h-screen p-12 w-[100%] smd:w-[80%]">
-        <div className="bg-fade-black border-2 border-yellows p-4 rounded-xl shadow-lg shadow-yellows">
-          <div className="flex flex-col gap-y-4 items-center mb-4">
-            <div className="rounded-full overflow-hidden mr-4">
-              <img src={image} alt="image" className="w-12 h-12" />
+      <div className="flex flex-col justify-center items-center space-y-10 p-12 w-full sm:w-80%">
+        {reviews.map((review, index) => (
+          <div
+            key={index}
+            className="w-full p-4 border-2 shadow-lg bg-fade-black border-yellows rounded-xl shadow-yellows"
+          >
+            <div className="flex flex-col items-center mb-4 gap-y-4">
+              <div className="mr-4 overflow-hidden rounded-full">
+                {/* Assuming 'image' field is a base64 encoded image */}
+                <img
+                  src={review?.image}
+                  alt="user-avatar"
+                  className="w-12 h-12"
+                />
+              </div>
+              <div className="flex flex-col items-center justify-center gap-y-2">
+                <h2 className="text-sm sm:text-xl text-yellows font-radios">
+                  {review?.name}
+                </h2>
+                <h2 className="text-sm sm:text-xl text-yellows font-radios">
+                  {review?.reviewedService}
+                </h2>
+              </div>
             </div>
-            <div className="flex flex-col gap-y-2 justify-center items-center">
-              <h2 className="text-sm smd:text-xl text-yellows font-radios">
-                Eren Yeager
-              </h2>
-              <h2 className="text-sm smd:text-xl text-yellows font-radios ">
-                Amazing thoughts on Swaat TourS
-              </h2>
-            </div>
+            <p className="text-sm text-center text-white font-radios sm:text-lg">
+              {review?.words}
+            </p>
           </div>
-          <p className="text-white font-radios text-center smd:text-lg text-sm">
-            “Trips were amazing and i enjoyed too much in ur amazing trip i was
-            so beautiful journey i really enjoyed it.Trips were amazing and i
-            enjoyed too much in ur amazing trip i was so beautiful journey i
-            really enjoyed it ”
-          </p>
-        </div>
-
-        <div className="bg-fade-black border-2 border-yellows p-4 rounded-xl shadow-lg shadow-yellows">
-          <div className="flex flex-col gap-y-4 items-center mb-4">
-            <div className="rounded-full overflow-hidden mr-4">
-              <img src={image} alt="image" className="w-12 h-12" />
-            </div>
-            <div className="flex flex-col gap-y-2 justify-center items-center">
-              <h2 className="text-sm smd:text-xl text-yellows font-radios">
-                Eren Yeager
-              </h2>
-              <h2 className="text-sm smd:text-xl text-yellows font-radios ">
-                Amazing thoughts on Swaat Tour
-              </h2>
-            </div>
-          </div>
-          <p className="text-white font-radios text-center smd:text-lg text-sm">
-            “Trips were amazing and i enjoyed too much in ur amazing trip i was
-            so beautiful journey i really enjoyed it.Trips were amazing and i
-            enjoyed too much in ur amazing trip i was so beautiful journey i
-            really enjoyed it ”
-          </p>
-        </div>
-
-        <div className="bg-fade-black border-2 border-yellows p-4 rounded-xl shadow-lg shadow-yellows">
-          <div className="flex flex-col gap-y-4 items-center mb-4">
-            <div className="rounded-full overflow-hidden mr-4">
-              <img src={image} alt="image" className="w-12 h-12" />
-            </div>
-            <div className="flex flex-col gap-y-2 justify-center items-center">
-              <h2 className="text-sm smd:text-xl text-yellows font-radios">
-                Eren Yeager
-              </h2>
-              <h2 className="text-sm smd:text-xl text-yellows font-radios ">
-                Amazing thoughts on Swaat Tour
-              </h2>
-            </div>
-          </div>
-          <p className="text-white font-radios text-center smd:text-lg text-sm">
-            “Trips were amazing and i enjoyed too much in ur amazing trip i was
-            so beautiful journey i really enjoyed it.Trips were amazing and i
-            enjoyed too much in ur amazing trip i was so beautiful journey i
-            really enjoyed it ”
-          </p>
-        </div>
+        ))}
       </div>
     </div>
   );

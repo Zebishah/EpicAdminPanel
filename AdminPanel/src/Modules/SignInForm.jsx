@@ -4,8 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { useNavigate } from "react-router";
 import { SignIn, resetSignInState } from "../Redux/Slices/SignInSlice";
-import AboveNavbar from "./AboveNavbar";
-import { userSearchFrEmail } from "../Redux/Slices/SearchingUserSlice";
 import { Link } from "react-router-dom";
 
 const SignInForm = () => {
@@ -36,10 +34,9 @@ const SignInForm = () => {
       return toast.error("Invalid credentials");
     } else if (data) {
       toast.success("signIn successful!");
-      dispatch(userSearchFrEmail(email));
 
       setTimeout(() => {
-        navigate("/");
+        navigate("/Dashboard");
       }, 3000);
     }
   }, [error, data, dispatch, email, navigate]);
@@ -50,24 +47,24 @@ const SignInForm = () => {
     };
   }, [dispatch]);
   return (
-    <div className="h-screen flex">
+    <div className="flex h-screen">
       <ToastContainer />
-      <AboveNavbar />
-      <div className="flex smd:w-1/2 justify-center items-center bg-fade-black sssm:w-full">
-        <form className=" flex flex-col gap-y-4" onSubmit={handleSubmit}>
+
+      <div className="flex items-center justify-center smd:w-1/2 bg-fade-black sssm:w-full">
+        <form className="flex flex-col  gap-y-4" onSubmit={handleSubmit}>
           <div>
-            <h1 className="text-yellows font-joining font-bold text-2xl mb-1">
+            <h1 className="mb-1 text-2xl font-bold text-yellows font-joining">
               Hello Again!
             </h1>
-            <p className="text-yellows font-joining font-bold text-2xl mb-1 ">
+            <p className="mb-1 text-2xl font-bold text-yellows font-joining ">
               Welcome Back
             </p>{" "}
           </div>
           <div className="flex flex-col gap-y-3">
-            <div className="flex items-center border-2 border-yellows shadow-lg shadow-yellows py-3 px-3 mt-4 rounded-2xl">
+            <div className="flex items-center px-3 py-3 mt-4 border-2 shadow-lg border-yellows shadow-yellows rounded-2xl">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 text-yellows"
+                className="w-5 h-5 text-yellows"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -80,7 +77,7 @@ const SignInForm = () => {
                 />
               </svg>
               <input
-                className="pl-2 text-white outline-none bg-transparent bg-light-black placeholder:text-white"
+                className="pl-2 text-white bg-transparent outline-none bg-light-black placeholder:text-white"
                 type="text"
                 name="email"
                 id="email"
@@ -89,10 +86,10 @@ const SignInForm = () => {
                 onChange={handleEmailChange}
               />
             </div>
-            <div className="flex items-center border-2 border-yellows shadow-lg shadow-yellows py-3 px-3 mt-4 rounded-2xl">
+            <div className="flex items-center px-3 py-3 mt-4 border-2 shadow-lg border-yellows shadow-yellows rounded-2xl">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 text-yellows"
+                className="w-5 h-5 text-yellows"
                 viewBox="0 0 20 20"
                 fill="currentColor"
               >
@@ -103,7 +100,7 @@ const SignInForm = () => {
                 />
               </svg>
               <input
-                className="pl-2 text-white outline-none bg-transparent bg-light-black placeholder:text-white"
+                className="pl-2 text-white bg-transparent outline-none bg-light-black placeholder:text-white"
                 type="password"
                 name="password"
                 id="password"
@@ -117,16 +114,16 @@ const SignInForm = () => {
               onSubmit={handleSubmit}
               className=" mt-4 w-full hover:before:bg-red rounded-xl relative h-[50px] overflow-hidden border border-yellows bg-light-black px-3 text-yellows shadow-lg transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-yellows before:transition-all before:duration-500 hover:text-black hover:shadow-yellow-400 hover:before:left-0 hover:before:w-full"
             >
-              <span className="relative z-10 text-radios text-lg">Login</span>
+              <span className="relative z-10 text-lg text-radios">Login</span>
             </button>
             <div className="flex-flex-row gap-x-4">
               <Link to={"/ResetPassword"}>
-                <span className="text-sm ml-2 text-yellows font-radios cursor-pointer">
+                <span className="ml-2 text-sm cursor-pointer text-yellows font-radios">
                   Forgot Password ?
                 </span>
               </Link>
               <Link to={"/signUp"}>
-                <span className="text-sm ml-2 text-white font-radios cursor-pointer hover:text-yellows">
+                <span className="ml-2 text-sm text-white cursor-pointer font-radios hover:text-yellows">
                   Register Account
                 </span>
               </Link>
@@ -134,10 +131,10 @@ const SignInForm = () => {
           </div>
         </form>
       </div>
-      <div className="hidden smd:flex w-1/2 bg-yellows i justify-around items-center">
+      <div className="items-center justify-around hidden w-1/2 smd:flex bg-yellows i">
         <div>
-          <h1 className="text-black text-5xl font-joining">Epic Explorer</h1>
-          <p className="text-black mt-1">
+          <h1 className="text-5xl text-black font-joining">Epic Explorer</h1>
+          <p className="mt-1 text-black">
             The most popular Tour and travel and booking agency
           </p>
           <button
@@ -145,7 +142,7 @@ const SignInForm = () => {
             onSubmit={ReadMore}
             className=" mt-4 w-auto hover:before:bg-red rounded-xl relative h-[50px] overflow-hidden border border-yellows bg-light-black px-3 text-yellows shadow-lg transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-white before:transition-all before:duration-500 hover:text-black hover:shadow-yellow-400 hover:before:left-0 hover:before:w-full"
           >
-            <span className="relative z-10 text-radios text-lg">Read More</span>
+            <span className="relative z-10 text-lg text-radios">Read More</span>
           </button>
         </div>
       </div>

@@ -1,106 +1,97 @@
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+
 const AllTransport = () => {
+  const [transports, setTransports] = useState([]);
+
+  useEffect(() => {
+    const fetchTransports = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/Admin/transports', {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+        setTransports(response.data.transports);
+      } catch (error) {
+        console.error('Error fetching transports:', error);
+      }
+    };
+
+    fetchTransports();
+  }, []);
+
   return (
-    <div className="flex flex-col gap-y-10 w-full">
-      <h1 className="text-yellows text-5xl font-joining mx-auto rounded-lg shadow-lg shadow-yellows">
+    <div className="flex flex-col w-full gap-y-10">
+      <h1 className="mx-auto text-5xl rounded-lg shadow-lg text-yellows font-joining shadow-yellows">
         All Transport
       </h1>
-      <div className="relative overflow-x-auto shadow-md sm:rounded-lg ml-0 2xl:ml-10 w-full">
-        <table className="w-full text-sm text-left rtl:text-right text-white">
+      <div className="relative w-full ml-0 overflow-x-auto shadow-md sm:rounded-lg 2xl:ml-10">
+        <table className="w-full text-sm text-left text-white rtl:text-right">
           <thead className="text-xs text-black uppercase bg-yellows ">
             <tr>
-              <th scope="col" className="px-2 2xl:px-6 py-3 font-radios">
+              <th scope="col" className="px-2 py-3 2xl:px-6 font-radios">
                 Car-Name
               </th>
-              <th scope="col" className="px-2 2xl:px-6 py-3 font-radios">
+              <th scope="col" className="px-2 py-3 2xl:px-6 font-radios">
                 Car-Prices
               </th>
-              <th scope="col" className="px-2 2xl:px-6 py-3 font-radios">
+              <th scope="col" className="px-2 py-3 2xl:px-6 font-radios">
                 Car-seats
               </th>
-              <th scope="col" className="px-2 2xl:px-6 py-3 font-radios">
+              <th scope="col" className="px-2 py-3 2xl:px-6 font-radios">
                 Car-Type
               </th>
-              <th scope="col" className="px-2 2xl:px-6 py-3 font-radios">
+              <th scope="col" className="px-2 py-3 2xl:px-6 font-radios">
                 Seats Limit
               </th>
-              <th scope="col" className="px-2 2xl:px-6 py-3 font-radios">
-                BooksCount
+              <th scope="col" className="px-2 py-3 2xl:px-6 font-radios">
+                BookedCount
               </th>
-              <th scope="col" className="px-2 2xl:px-6 py-3 font-radios">
+              <th scope="col" className="px-2 py-3 2xl:px-6 font-radios">
                 Availability
               </th>
-
-              <th scope="col" className="px-2 2xl:px-6 py-3 font-radios">
+              {/* <th scope="col" className="px-2 py-3 2xl:px-6 font-radios">
                 Action
-              </th>
+              </th> */}
             </tr>
           </thead>
           <tbody>
-            <tr className="odd:bg-fade-black even:bg-light-black border-b dark:border-gray-700 font-radios">
-              <th
-                scope="row"
-                className="text-xs px-2 2xl:px-6 py-4 font-medium whitespace-nowrap text-white font-radios"
+            {transports.map((transport, index) => (
+              <tr
+                key={index}
+                className={`${
+                  index % 2 === 0 ? 'even:bg-light-black' : 'odd:bg-fade-black'
+                } border-b dark:border-gray-700 font-radios`}
               >
-                <p className="text-white"> Suzuki Bolan</p>
-              </th>
-
-              <td className="text-xs px-2 2xl:px-6 py-4">23000pkr</td>
-              <td className="text-xs px-2 2xl:px-6 py-4">5 Seats</td>
-
-              <td className="text-xs px-2 2xl:px-6 py-4">Manual</td>
-              <td className="text-xs px-2 2xl:px-6 py-4">04 Members</td>
-              <td className="text-xs px-2 2xl:px-6 py-4">04 times</td>
-              <td className="text-xs px-2 2xl:px-6 py-4">Available</td>
-
-              <td className="text-xs px-2 2xl:px-6 py-4">
-                <a
-                  href="#"
-                  className="mr-2 font-medium text-red-600 hover:underline"
+                <th
+                  scope="row"
+                  className="px-2 py-4 text-xs font-medium text-white 2xl:px-6 whitespace-nowrap font-radios"
                 >
-                  Delete
-                </a>
-
-                <a
-                  href="#"
-                  className="font-medium text-red-600 hover:underline"
-                >
-                  Edit
-                </a>
-              </td>
-            </tr>
-
-            <tr className="odd:bg-fade-black even:bg-light-black border-b dark:border-gray-700 font-radios">
-              <th
-                scope="row"
-                className="text-xs px-2 2xl:px-6 py-4 font-medium whitespace-nowrap text-white font-radios"
-              >
-                <p className="text-white"> Suzuki Bolan</p>
-              </th>
-
-              <td className="text-xs px-2 2xl:px-6 py-4">23000pkr</td>
-              <td className="text-xs px-2 2xl:px-6 py-4">5 Seats</td>
-
-              <td className="text-xs px-2 2xl:px-6 py-4">Manual</td>
-              <td className="text-xs px-2 2xl:px-6 py-4">04 Members</td>
-              <td className="text-xs px-2 2xl:px-6 py-4">04 times</td>
-              <td className="text-xs px-2 2xl:px-6 py-4">Available</td>
-
-              <td className="text-xs px-2 2xl:px-6 py-4">
-                <a
-                  href="#"
-                  className="mr-2 font-medium text-red-600 hover:underline"
-                >
-                  Delete
-                </a>
-
-                <a
-                  href="#"
-                  className="font-medium text-red-600 hover:underline"
-                >
-                  Edit
-                </a>
-              </td>
-            </tr>
+                  <p className="text-white">{transport.carName}</p>
+                </th>
+                <td className="px-2 py-4 text-xs 2xl:px-6">{transport.prices}</td>
+                <td className="px-2 py-4 text-xs 2xl:px-6">{transport.seats}</td>
+                <td className="px-2 py-4 text-xs 2xl:px-6">{transport.type}</td>
+                <td className="px-2 py-4 text-xs 2xl:px-6">{transport.allowedGuests}</td>
+                <td className="px-2 py-4 text-xs 2xl:px-6">{transport.bookedCount}</td>
+                <td className="px-2 py-4 text-xs 2xl:px-6">{transport.available}</td>
+                {/* <td className="px-2 py-4 text-xs 2xl:px-6">
+                  <a
+                    href="#"
+                    className="mr-2 font-medium text-red-600 hover:underline"
+                  >
+                    Delete
+                  </a>
+                  <a
+                    href="#"
+                    className="font-medium text-red-600 hover:underline"
+                  >
+                    Edit
+                  </a>
+                </td> */}
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

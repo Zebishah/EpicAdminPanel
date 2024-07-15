@@ -27,7 +27,7 @@ const AddRoom = () => {
   return (
     <>
       <div className="landing-page flex flex-col space-y-8 justify-center items-center w-[100%] mt-16 overflow-hidden">
-        <h1 className="text-yellows text-5xl font-joining rounded-lg shadow-lg shadow-yellows">
+        <h1 className="text-5xl rounded-lg shadow-lg text-yellows font-joining shadow-yellows">
           Add Room Form
         </h1>
         <section className="bg-white dark:bg-fade-black flex w-[90%] mt-8 rounded-xl shadow-lg shadow-black">
@@ -177,7 +177,7 @@ const AddRoom = () => {
                     type="file"
                     name="image"
                     id="image"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                    className="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-primary-600 focus:border-primary-600 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                     placeholder="Upload image"
                     onChange={handleImageChange}
                   />
@@ -186,7 +186,7 @@ const AddRoom = () => {
                     <img
                       src={formData.imageUrl}
                       alt="Preview"
-                      className="mt-2 h-20 w-20 object-cover rounded"
+                      className="object-cover w-20 h-20 mt-2 rounded"
                     />
                   )}
                 </div>

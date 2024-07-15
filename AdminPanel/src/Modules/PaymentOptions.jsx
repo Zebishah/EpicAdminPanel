@@ -4,21 +4,21 @@ import { Link } from "react-router-dom";
 const PaymentOptions = () => {
   return (
     <div className="flex flex-col justify-center gap-y-10 p-6 items-center w-[100%] ">
-      <h1 className="text-yellows text-5xl font-joining bg-light-black bg-opacity-70 p-4 rounded-lg ">
+      <h1 className="p-4 text-5xl rounded-lg text-yellows font-joining bg-light-black bg-opacity-70 ">
         Payment Record Options
       </h1>
       <section className="benefits-container grid grid-cols-1 md:grid-cols-3 gap-4 py-16 w-[90%] ">
         <Link to={"/PaymentRecord"}>
-          <div className="benefit-card bg-fade-black rounded-md shadow-lg p-6 flex flex-col items-center gap-y-3">
+          <div className="flex flex-col items-center p-6 rounded-md shadow-lg benefit-card bg-fade-black gap-y-3">
             <FontAwesomeIcon
               icon={faPlane}
-              className="text-yellows text-4xl items-center"
+              className="items-center text-4xl text-yellows"
             ></FontAwesomeIcon>
-            <div className="flex flex-col gap-y-0 justify-center items-center">
-              <h3 className="text-xl font-semibold mb-2 text-yellows ">
+            <div className="flex flex-col items-center justify-center gap-y-0">
+              <h3 className="mb-2 text-xl font-semibold text-yellows ">
                 Tour Payments
               </h3>
-              <p className="text-white text-center ">
+              <p className="text-center text-white ">
                 Thrilling adventures await! Join us for adrenaline-pumping
                 journeys experiences worldwide.
               </p>
@@ -26,16 +26,16 @@ const PaymentOptions = () => {
           </div>
         </Link>
         <Link to={"/HotelPaymentRecord"}>
-          <div className="benefit-card bg-fade-black rounded-md shadow-lg p-6 flex flex-col items-center gap-y-3">
+          <div className="flex flex-col items-center p-6 rounded-md shadow-lg benefit-card bg-fade-black gap-y-3">
             <FontAwesomeIcon
               icon={faHotel}
-              className="text-yellows text-4xl items-center"
+              className="items-center text-4xl text-yellows"
             ></FontAwesomeIcon>
-            <div className="flex flex-col gap-y-0 justify-center items-center">
-              <h3 className="text-xl font-semibold mb-2 text-yellows text-center">
-                Hotel Payments
+            <div className="flex flex-col items-center justify-center gap-y-0">
+              <h3 className="mb-2 text-xl font-semibold text-center text-yellows">
+                Room Payments
               </h3>
-              <p className="text-white text-center">
+              <p className="text-center text-white">
                 Thrilling adventures await! Join us for adrenaline-pumping
                 journeys experiences worldwide.
               </p>
@@ -43,16 +43,16 @@ const PaymentOptions = () => {
           </div>
         </Link>
         <Link to={"/TransportPaymentRecord"}>
-          <div className="benefit-card bg-fade-black rounded-md shadow-lg p-6 flex flex-col items-center gap-y-3 ">
+          <div className="flex flex-col items-center p-6 rounded-md shadow-lg benefit-card bg-fade-black gap-y-3 ">
             <FontAwesomeIcon
               icon={faCar}
-              className="text-yellows text-4xl items-center"
+              className="items-center text-4xl text-yellows"
             ></FontAwesomeIcon>
-            <div className="flex flex-col gap-y-0 justify-center items-center">
-              <h3 className="text-xl font-semibold mb-2 text-yellows text-center">
+            <div className="flex flex-col items-center justify-center gap-y-0">
+              <h3 className="mb-2 text-xl font-semibold text-center text-yellows">
                 Transport Payments
               </h3>
-              <p className="text-white text-center">
+              <p className="text-center text-white">
                 Thrilling adventures await! Join us for adrenaline-pumping
                 journeys experiences worldwide.
               </p>

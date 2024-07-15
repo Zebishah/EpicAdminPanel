@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { resetLoginState, signUp } from "../Redux/Slices/LoginSlice";
-import AboveNavbar from "./AboveNavbar";
+
 import { useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
 
@@ -82,14 +82,11 @@ const SignUpForm = () => {
       toast.error("Please agree to the terms before signing up");
       return;
     }
-    if (/\s/.test(userName)) {
+    if (/\s/.test(userName.trim())) {
       toast.error("UserName should not have space in it");
       return;
     }
-    if (password.length < 10) {
-      toast.error("Passwords should not be that much smaller");
-      return;
-    }
+
     if (password !== confirmPassword) {
       toast.error("Passwords do not match");
       return;
@@ -110,85 +107,77 @@ const SignUpForm = () => {
   useEffect(() => {
     if (error) {
       setLoading(false);
-      toast.error("Invalid credentials");
+      toast.error(`Error: ${error}`);
     }
     if (data) {
-      setLoading(false);
-      if (googleLogin == false) {
-        toast.success(
-          " User SignedUp successfully and OTP Sended for authentication!"
-        );
-      } else {
-        toast.success("user signed up successfully");
-      }
-
-      setTimeout(() => {
-        if (googleLogin == false) {
-          navigate(`/otp?email=${encodeURIComponent(email)}`);
-          setUserName("");
-          setPassword("");
-          setConfirmPassword("");
-          setEmail("");
-        } else if (googleLogin == true) {
-          navigate(
-            `/?email=${encodeURIComponent(
-              googleEmail
-            )}&userName=${encodeURIComponent(googleUserName)}`
+      if (data.success === true) {
+        console.log(data);
+        setLoading(false);
+        if (googleLogin === false) {
+          toast.success(
+            " User SignedUp successfully and OTP Sended for authentication!"
           );
+        } else {
+          toast.success("user signed up successfully");
         }
 
-        dispatch(resetLoginState());
-      }, 5000);
+        setTimeout(() => {
+          if (googleLogin == false) {
+            navigate(`/signIn`);
+            setUserName("");
+            setPassword("");
+            setConfirmPassword("");
+            setEmail("");
+          } else if (googleLogin == true) {
+            navigate(
+              `/?email=${encodeURIComponent(
+                googleEmail
+              )}&userName=${encodeURIComponent(googleUserName)}`
+            );
+          }
+        }, 5000);
+      }
     }
-  }, [
-    data,
-    error,
-    navigate,
-    dispatch,
-    email,
-    googleLogin,
-    googleEmail,
-    googleUserName,
-  ]);
+  }, [data, error, googleLogin]);
   useEffect(() => {
     return () => {
       dispatch(resetLoginState());
     };
   }, [dispatch]);
   return (
-    <div className="h-screen flex ">
+    <div className="flex h-screen ">
       <ToastContainer />
-      <AboveNavbar />
-      <div className="hidden smd:flex w-1/2 bg-yellows i justify-around items-center">
+
+      <div className="hidden smd:flex w-1/2 bg-[#3654ff] i justify-around items-center">
         <div>
-          <h1 className="text-black text-5xl font-joining ">Epic Explorer</h1>
-          <p className="text-black mt-3 font-radios">
+          <h1 className="text-5xl text-white font-joining ">Epic Explorer</h1>
+          <p className="mt-3 text-white font-radios">
             The most popular Tour and travel and booking agency
           </p>
           <button
             type="submit"
             onSubmit={ReadMore}
-            className=" mt-4 w-auto hover:before:bg-red rounded-xl relative h-[50px] overflow-hidden border border-yellows bg-light-black px-3 text-yellows shadow-lg transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-white before:transition-all before:duration-500 hover:text-black hover:shadow-yellow-400 hover:before:left-0 hover:before:w-full"
+            className=" mt-4 w-auto hover:before:bg-red rounded-xl relative h-[50px] overflow-hidden border bg-white px-3 text-[#3654ff] shadow-lg transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-white before:transition-all before:duration-500 hover:text-[#3654ff] hover:shadow-fade-black hover:before:left-0 hover:before:w-full"
           >
-            <span className="relative z-10 text-radios text-lg">Read More</span>
+            <span className="relative z-10 text-lg text-radios">Read More</span>
           </button>
         </div>
       </div>
-      <div className="flex smd:w-1/2 justify-center items-center bg-fade-black sssm:w-full">
+      <div className="flex items-center justify-center bg-white smd:w-1/2 sssm:w-full">
         <form className="" onSubmit={handleSubmit}>
           {/* Form inputs */}
-          <h1 className="text-yellows font-joining font-bold text-2xl mb-1">
+          <h1 className="text-[#3654ff] font-joining font-bold text-2xl mb-1">
             Hello Again!
           </h1>
-          <p className="text-sm font-joining font-bold text-yellows mb-7">
+          <p className="text-sm font-joining font-bold text-[#3654ff] mb-7">
             Welcome Back
           </p>
           <div className="flex flex-col gap-y-3">
-            <div className="flex items-center border-2 border-yellows shadow-lg shadow-yellows py-3 px-3 mt-4 rounded-2xl">
+            <div className="flex items-center px-3 py-3 mt-4 border-2 shadow-lg shadow-fade-black rounded-2xl">
               {/* Email input */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 text-yellows"
+                className="h-5 w-5 text-[#3654ff]"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -201,7 +190,7 @@ const SignUpForm = () => {
                 />
               </svg>
               <input
-                className="pl-2 text-white outline-none bg-transparent bg-light-black placeholder:text-white"
+                className="pl-2 text-black outline-none bg-transparent bg-light-black placeholder:text-[#3654ff]"
                 type="text"
                 name="userName"
                 placeholder="userName"
@@ -210,11 +199,11 @@ const SignUpForm = () => {
                 required
               />
             </div>
-            <div className="flex items-center border-2 border-yellows shadow-lg shadow-yellows py-3 px-3 mt-4 rounded-2xl">
+            <div className="flex items-center px-3 py-3 mt-4 border-2 shadow-lg shadow-fade-black rounded-2xl">
               {/* Email input */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 text-yellows"
+                className="h-5 w-5 text-[#3654ff]"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -227,7 +216,7 @@ const SignUpForm = () => {
                 />
               </svg>
               <input
-                className="pl-2 text-white outline-none bg-transparent bg-light-black placeholder:text-white"
+                className="pl-2 text-black outline-none bg-transparent bg-light-black placeholder:text-[#3654ff]"
                 type="text"
                 name="email"
                 placeholder="Email Address"
@@ -236,11 +225,11 @@ const SignUpForm = () => {
                 required
               />
             </div>
-            <div className="flex items-center border-2 border-yellows shadow-lg shadow-yellows py-3 px-3 mt-4 rounded-2xl">
+            <div className="flex items-center px-3 py-3 mt-4 border-2 shadow-lg shadow-fade-black rounded-2xl">
               {/* Password input */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 text-yellows"
+                className="h-5 w-5 text-[#3654ff]"
                 viewBox="0 0 20 20"
                 fill="currentColor"
               >
@@ -251,7 +240,7 @@ const SignUpForm = () => {
                 />
               </svg>
               <input
-                className="pl-2 text-white outline-none bg-transparent bg-light-black placeholder:text-white"
+                className="pl-2 text-black outline-none bg-transparent bg-light-black placeholder:text-[#3654ff]"
                 type="password"
                 name="password"
                 placeholder="Password"
@@ -260,11 +249,11 @@ const SignUpForm = () => {
                 required
               />
             </div>
-            <div className="flex items-center border-2 border-yellows shadow-lg shadow-yellows py-3 px-3 mt-4 rounded-2xl relative">
+            <div className="relative flex items-center px-3 py-3 mt-4 border-2 shadow-lg shadow-fade-black rounded-2xl">
               {/* Confirm Password input */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 text-yellows"
+                className="h-5 w-5 text-[#3654ff]"
                 viewBox="0 0 20 20"
                 fill="currentColor"
               >
@@ -275,7 +264,7 @@ const SignUpForm = () => {
                 />
               </svg>
               <input
-                className="pl-2 text-white outline-none bg-transparent placeholder:text-white transition duration-300 ease-in-out focus:border-pink-500 focus:shadow-lg"
+                className="pl-2 text-black outline-none bg-transparent placeholder:text-[#3654ff] transition duration-300 ease-in-out focus:border-pink-500 focus:shadow-lg"
                 type="password"
                 name="confirmPassword"
                 placeholder="Confirm Password"
@@ -284,11 +273,11 @@ const SignUpForm = () => {
                 required
               />
             </div>
-            <div className="flex flex-row gap-x-2 mt-4 items-center">
+            <div className="flex flex-row items-center mt-4 gap-x-2">
               <input type="checkbox" id="termsCheckbox" className="text-lg" />
               <label
                 htmlFor="termsCheckbox"
-                className="text-lg text-yellows cursor-pointer"
+                className="text-lg text-[#3654ff] cursor-pointer"
               >
                 I agree to the conditions and terms
               </label>
@@ -301,7 +290,7 @@ const SignUpForm = () => {
             <button
               type="button"
               onClick={() => login()}
-              className="bg-yellows text-balance p-4 rounded-lg shadow-lg shadow-yellows"
+              className="bg-[#3654ff] text-white text-balance p-4 rounded-lg shadow-lg shadow-fade-black"
             >
               Sign in with Google 🚀
             </button>
@@ -309,11 +298,11 @@ const SignUpForm = () => {
             <button
               type="submit"
               onSubmit={handleSubmit}
-              className=" mt-2 w-full text-center hover:before:bg-red rounded-xl relative h-[50px] overflow-hidden border border-yellows bg-light-black px-3 text-yellows shadow-lg transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-yellows before:transition-all before:duration-500 hover:text-black hover:shadow-yellow-400 hover:before:left-0 hover:before:w-full"
+              className=" mt-2 w-full text-center hover:before:bg-red rounded-xl relative h-[50px] overflow-hidden border bg-[#3654ff] px-3 text-white shadow-lg transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-white before:transition-all before:duration-500 hover:text-[#3654ff] hover:shadow-fade-black hover:before:left-0 hover:before:w-full"
             >
               {loading ? (
-                <div className="status flex flex-row gap-x-2 justify-center items-center">
-                  <span className=" text-green-500 z-10">Loading...</span>
+                <div className="flex flex-row items-center justify-center status gap-x-2">
+                  <span className="z-10 text-green-500 ">Loading...</span>
                   <svg
                     aria-hidden="true"
                     className="w-8 h-8 text-green-500 animate-spin dark:text-green-500 fill-green-800"
@@ -332,7 +321,7 @@ const SignUpForm = () => {
                   </svg>
                 </div>
               ) : (
-                <span className="relative z-10 text-radios text-lg">
+                <span className="relative z-10 text-lg text-radios">
                   SignUp
                 </span>
               )}

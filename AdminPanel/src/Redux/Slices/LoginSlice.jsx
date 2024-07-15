@@ -38,7 +38,7 @@ export const {
 } = loginSlice.actions;
 
 export const signUp = ({
-  userName,
+  userName: name,
   email,
   password,
   confirmPassword,
@@ -46,9 +46,10 @@ export const signUp = ({
 }) => async (dispatch) => {
   dispatch(signUpRequest());
   try {
+    console.log(name);
     const response = await axios.post(
-      `http://localhost:5000/User/createUser`,
-      { userName, email, password, confirmPassword, googleSign },
+      `http://localhost:5000/Admin/createAdmin`,
+      { name, email, password, confirmPassword, googleSign },
       {
         headers: {
           "Content-Type": "application/json",

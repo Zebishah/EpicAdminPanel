@@ -2,20 +2,20 @@ const ChangePassword = () => {
   let changePassword = () => {};
   return (
     <div className="flex flex-col gap-y-10 p-6 items-center w-[80%] ">
-      <section className=" w-full">
+      <section className="w-full ">
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0 w-[100%]">
-          <h1 className="flex font-radios items-center mb-6 text-4xl font-semibold text-yellows dark:text-yellows bg-light-black opacity-50 p-4 rounded-lg">
+          <h1 className="flex items-center p-4 mb-6 text-4xl font-semibold rounded-lg opacity-50 font-radios text-yellows dark:text-yellows bg-light-black">
             Update Password
           </h1>
-          <div className="w-full p-6 bg-light-black rounded-lg shadow-lg dark:border md:mt-0 sm:max-w-md dark:bg-fade-black dark:border-fade-black sm:p-8">
-            <h2 className="mb-1 text-xl font-radios font-bold leading-tight tracking-tight text-yellows md:text-2xl dark:text-yellows">
+          <div className="w-full p-6 rounded-lg shadow-lg bg-light-black dark:border md:mt-0 sm:max-w-md dark:bg-fade-black dark:border-fade-black sm:p-8">
+            <h2 className="mb-1 text-xl font-bold leading-tight tracking-tight font-radios text-yellows md:text-2xl dark:text-yellows">
               Change Password
             </h2>
             <form className="mt-4 space-y-8 lg:mt-5 md:space-y-8" action="#">
               <div>
                 <label
                   htmlFor="oldPassword"
-                  className="block mb-2 text-sm font-radios font-medium text-yellows dark:text-yellows"
+                  className="block mb-2 text-sm font-medium font-radios text-yellows dark:text-yellows"
                 >
                   old Password
                 </label>
@@ -31,7 +31,7 @@ const ChangePassword = () => {
               <div>
                 <label
                   htmlFor="password"
-                  className="block mb-2 text-sm font-radios font-medium text-yellows dark:text-yellows"
+                  className="block mb-2 text-sm font-medium font-radios text-yellows dark:text-yellows"
                 >
                   New Password
                 </label>
@@ -47,7 +47,7 @@ const ChangePassword = () => {
               <div>
                 <label
                   htmlFor="confirm-password"
-                  className="block mb-2 text-sm font-radios font-medium text-yellows dark:text-yellows"
+                  className="block mb-2 text-sm font-medium font-radios text-yellows dark:text-yellows"
                 >
                   Confirm password
                 </label>

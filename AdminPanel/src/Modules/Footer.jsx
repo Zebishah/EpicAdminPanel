@@ -14,21 +14,21 @@ import logo from "../images/Epic_Explorer__1_-removebg-preview.png";
 const Footer = () => {
   return (
     <footer className="w-full py-14 bg-fade-black">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="border-b border-gray-200 pb-14 flex justify-between items-center flex-col gap-8 lg:gap-0 lg:flex-row">
+      <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div className="flex flex-col items-center justify-between gap-8 border-b border-gray-200 pb-14 lg:gap-0 lg:flex-row">
           <div className="block">
-            <h3 className="font-manrope text-3xl text-yellows font-bold mb-2 text-center lg:text-left">
+            <h3 className="mb-2 text-3xl font-bold text-center font-manrope text-yellows lg:text-left">
               Sign up to our webpage
             </h3>
-            <p className="text-white text-center lg:text-left">
+            <p className="text-center text-white lg:text-left">
               Stay up to date with the latest update and announcement.
             </p>
           </div>
-          <div className="flex items-center flex-col gap-4 lg:flex-row">
+          <div className="flex flex-col items-center gap-4 lg:flex-row">
             <input
               type="text"
               name="email"
-              className="py-3 px-6 h-14 border border-gray-300 shadow-sm rounded-full focus:outline-none"
+              className="px-6 py-3 border border-gray-300 rounded-full shadow-sm h-14 focus:outline-none"
               placeholder="Enter your mail.."
             />
             <button className="h-14 py-3.5 px-7 bg-yellows shadow-sm rounded-full transition-all duration-500 ease-in-out text-black font-bold hover:bg-fade-black hover:text-yellows hover:shadow-lg hover:shadow-yellows">
@@ -37,9 +37,9 @@ const Footer = () => {
           </div>
         </div>
         <div className="grid grid-cols-2 min-[690px]:grid-cols-4 lg:grid-cols-6 gap-4 xl:gap-8 pt-14 pb-10 max-w-xs mx-auto min-[690px]:max-w-2xl lg:max-w-full">
-          <div className="flex flex-col lg:justify-start lg:items-start justify-center items-center col-span-full mb-10 lg:col-span-2 lg:mb-0">
-            <img src={logo} className="h-44 -mt-14 block w-fit" alt="logo" />
-            <p className="py-8 text-white lg:max-w-xs text-center lg:text-left -mt-10">
+          <div className="flex flex-col items-center justify-center mb-10 lg:justify-start lg:items-start col-span-full lg:col-span-2 lg:mb-0">
+            <img src={logo} className="block h-44 -mt-14 w-fit" alt="logo" />
+            <p className="py-8 -mt-10 text-center text-white lg:max-w-xs lg:text-left">
               Trusted in more than 100 countries &amp; 5 million customers. Have
               any query ?
             </p>
@@ -50,15 +50,15 @@ const Footer = () => {
               Contact us
             </a>
           </div>
-          <div className="lg:mx-auto text-left ">
-            <h4 className="text-lg text-yellows font-medium mb-7 ml-2">
+          <div className="text-left lg:mx-auto ">
+            <h4 className="ml-2 text-lg font-medium text-yellows mb-7">
               Pagedone
             </h4>
-            <ul className="text-sm  transition-all duration-500">
+            <ul className="text-sm transition-all duration-500">
               <li className="mb-6">
                 <a
                   href="javascript:;"
-                  className="text-white p-2 hover:bg-yellows hover:text-black rounded-lg hover:shadow-lg hover:shadow-yellows whitespace-nowrap"
+                  className="p-2 text-white rounded-lg hover:bg-yellows hover:text-black hover:shadow-lg hover:shadow-yellows whitespace-nowrap"
                 >
                   Home
                 </a>
@@ -66,7 +66,7 @@ const Footer = () => {
               <li className="mb-6">
                 <a
                   href="javascript:;"
-                  className=" text-white p-2 hover:bg-yellows hover:text-black rounded-lg hover:shadow-lg hover:shadow-yellows whitespace-nowrap"
+                  className="p-2 text-white rounded-lg  hover:bg-yellows hover:text-black hover:shadow-lg hover:shadow-yellows whitespace-nowrap"
                 >
                   About
                 </a>
@@ -74,7 +74,7 @@ const Footer = () => {
               <li className="mb-6">
                 <a
                   href="javascript:;"
-                  className=" text-white p-2 hover:bg-yellows hover:text-black rounded-lg hover:shadow-lg hover:shadow-yellows whitespace-nowrap"
+                  className="p-2 text-white rounded-lg  hover:bg-yellows hover:text-black hover:shadow-lg hover:shadow-yellows whitespace-nowrap"
                 >
                   Pricing
                 </a>
@@ -82,7 +82,7 @@ const Footer = () => {
               <li className="mb-6">
                 <a
                   href="javascript:;"
-                  className=" text-white p-2 hover:bg-yellows hover:text-black rounded-lg hover:shadow-lg hover:shadow-yellows whitespace-nowrap"
+                  className="p-2 text-white rounded-lg  hover:bg-yellows hover:text-black hover:shadow-lg hover:shadow-yellows whitespace-nowrap"
                 >
                   Features
                 </a>
@@ -90,22 +90,22 @@ const Footer = () => {
               <li className="mb-6">
                 <a
                   href="javascript:;"
-                  className=" text-white p-2 hover:bg-yellows hover:text-black rounded-lg hover:shadow-lg hover:shadow-yellows whitespace-nowrap"
+                  className="p-2 text-white rounded-lg  hover:bg-yellows hover:text-black hover:shadow-lg hover:shadow-yellows whitespace-nowrap"
                 >
                   Pro Version
                 </a>
               </li>
             </ul>
           </div>
-          <div className="lg:mx-auto text-left ">
-            <h4 className="text-lg text-yellows font-medium mb-7 ml-2">
+          <div className="text-left lg:mx-auto ">
+            <h4 className="ml-2 text-lg font-medium text-yellows mb-7">
               Products
             </h4>
-            <ul className="text-sm  transition-all duration-500">
+            <ul className="text-sm transition-all duration-500">
               <li className="mb-6">
                 <a
                   href="javascript:;"
-                  className="text-white p-2 hover:bg-yellows hover:text-black rounded-lg hover:shadow-lg hover:shadow-yellows whitespace-nowrap"
+                  className="p-2 text-white rounded-lg hover:bg-yellows hover:text-black hover:shadow-lg hover:shadow-yellows whitespace-nowrap"
                 >
                   Figma UI System
                 </a>
@@ -113,7 +113,7 @@ const Footer = () => {
               <li className="mb-6">
                 <a
                   href="javascript:;"
-                  className=" text-white p-2 hover:bg-yellows hover:text-black rounded-lg hover:shadow-lg hover:shadow-yellows whitespace-nowrap"
+                  className="p-2 text-white rounded-lg  hover:bg-yellows hover:text-black hover:shadow-lg hover:shadow-yellows whitespace-nowrap"
                 >
                   Icons Assets
                 </a>
@@ -121,7 +121,7 @@ const Footer = () => {
               <li className="mb-6">
                 <a
                   href="javascript:;"
-                  className=" text-white p-2 hover:bg-yellows hover:text-black rounded-lg hover:shadow-lg hover:shadow-yellows whitespace-nowrap"
+                  className="p-2 text-white rounded-lg  hover:bg-yellows hover:text-black hover:shadow-lg hover:shadow-yellows whitespace-nowrap"
                 >
                   Responsive Blocks
                 </a>
@@ -129,7 +129,7 @@ const Footer = () => {
               <li className="mb-6">
                 <a
                   href="javascript:;"
-                  className=" text-white p-2 hover:bg-yellows hover:text-black rounded-lg hover:shadow-lg hover:shadow-yellows whitespace-nowrap"
+                  className="p-2 text-white rounded-lg  hover:bg-yellows hover:text-black hover:shadow-lg hover:shadow-yellows whitespace-nowrap"
                 >
                   Components Library
                 </a>
@@ -137,22 +137,22 @@ const Footer = () => {
               <li className="mb-6">
                 <a
                   href="javascript:;"
-                  className=" text-white p-2 hover:bg-yellows hover:text-black rounded-lg hover:shadow-lg hover:shadow-yellows whitespace-nowrap"
+                  className="p-2 text-white rounded-lg  hover:bg-yellows hover:text-black hover:shadow-lg hover:shadow-yellows whitespace-nowrap"
                 >
                   Plugin Guide
                 </a>
               </li>
             </ul>
           </div>
-          <div className="lg:mx-auto text-left ">
-            <h4 className="text-lg text-yellows font-medium mb-7 ml-2">
+          <div className="text-left lg:mx-auto ">
+            <h4 className="ml-2 text-lg font-medium text-yellows mb-7">
               Resources
             </h4>
-            <ul className="text-sm  transition-all duration-500">
+            <ul className="text-sm transition-all duration-500">
               <li className="mb-6">
                 <a
                   href="javascript:;"
-                  className="text-white p-2 hover:bg-yellows hover:text-black rounded-lg hover:shadow-lg hover:shadow-yellows whitespace-nowrap"
+                  className="p-2 text-white rounded-lg hover:bg-yellows hover:text-black hover:shadow-lg hover:shadow-yellows whitespace-nowrap"
                 >
                   FAQs
                 </a>
@@ -160,7 +160,7 @@ const Footer = () => {
               <li className="mb-6">
                 <a
                   href="javascript:;"
-                  className=" text-white p-2 hover:bg-yellows hover:text-black rounded-lg hover:shadow-lg hover:shadow-yellows whitespace-nowrap"
+                  className="p-2 text-white rounded-lg  hover:bg-yellows hover:text-black hover:shadow-lg hover:shadow-yellows whitespace-nowrap"
                 >
                   Quick Start
                 </a>
@@ -168,7 +168,7 @@ const Footer = () => {
               <li className="mb-6">
                 <a
                   href="javascript:;"
-                  className=" text-white p-2 hover:bg-yellows hover:text-black rounded-lg hover:shadow-lg hover:shadow-yellows whitespace-nowrap"
+                  className="p-2 text-white rounded-lg  hover:bg-yellows hover:text-black hover:shadow-lg hover:shadow-yellows whitespace-nowrap"
                 >
                   Documentation
                 </a>
@@ -176,7 +176,7 @@ const Footer = () => {
               <li className="mb-6">
                 <a
                   href="javascript:;"
-                  className=" text-white p-2 hover:bg-yellows hover:text-black rounded-lg hover:shadow-lg hover:shadow-yellows whitespace-nowrap"
+                  className="p-2 text-white rounded-lg  hover:bg-yellows hover:text-black hover:shadow-lg hover:shadow-yellows whitespace-nowrap"
                 >
                   User Guide
                 </a>
@@ -184,22 +184,22 @@ const Footer = () => {
               <li className="mb-6">
                 <a
                   href="javascript:;"
-                  className=" text-white p-2 hover:bg-yellows hover:text-black rounded-lg hover:shadow-lg hover:shadow-yellows whitespace-nowrap"
+                  className="p-2 text-white rounded-lg  hover:bg-yellows hover:text-black hover:shadow-lg hover:shadow-yellows whitespace-nowrap"
                 >
                   Plugin Guide
                 </a>
               </li>
             </ul>
           </div>
-          <div className="lg:mx-auto text-left ">
-            <h4 className="text-lg text-yellows font-medium mb-7 ml-2">
+          <div className="text-left lg:mx-auto ">
+            <h4 className="ml-2 text-lg font-medium text-yellows mb-7">
               Support
             </h4>
-            <ul className="text-sm  transition-all duration-500">
+            <ul className="text-sm transition-all duration-500">
               <li className="mb-6">
                 <a
                   href="javascript:;"
-                  className="text-white p-2 hover:bg-yellows hover:text-black rounded-lg hover:shadow-lg hover:shadow-yellows whitespace-nowrap"
+                  className="p-2 text-white rounded-lg hover:bg-yellows hover:text-black hover:shadow-lg hover:shadow-yellows whitespace-nowrap"
                 >
                   Customer Support
                 </a>
@@ -207,7 +207,7 @@ const Footer = () => {
               <li className="mb-6">
                 <a
                   href="javascript:;"
-                  className=" text-white p-2 hover:bg-yellows hover:text-black rounded-lg hover:shadow-lg hover:shadow-yellows whitespace-nowrap"
+                  className="p-2 text-white rounded-lg  hover:bg-yellows hover:text-black hover:shadow-lg hover:shadow-yellows whitespace-nowrap"
                 >
                   Cookies
                 </a>
@@ -215,7 +215,7 @@ const Footer = () => {
               <li className="mb-6">
                 <a
                   href="javascript:;"
-                  className=" text-white p-2 hover:bg-yellows hover:text-black rounded-lg hover:shadow-lg hover:shadow-yellows whitespace-nowrap"
+                  className="p-2 text-white rounded-lg  hover:bg-yellows hover:text-black hover:shadow-lg hover:shadow-yellows whitespace-nowrap"
                 >
                   License
                 </a>
@@ -223,7 +223,7 @@ const Footer = () => {
               <li className="mb-6">
                 <a
                   href="javascript:;"
-                  className=" text-white p-2 hover:bg-yellows hover:text-black rounded-lg hover:shadow-lg hover:shadow-yellows whitespace-nowrap"
+                  className="p-2 text-white rounded-lg  hover:bg-yellows hover:text-black hover:shadow-lg hover:shadow-yellows whitespace-nowrap"
                 >
                   Terms &amp; Conditions
                 </a>
@@ -231,7 +231,7 @@ const Footer = () => {
               <li className="mb-6">
                 <a
                   href="javascript:;"
-                  className=" text-white p-2 hover:bg-yellows hover:text-black rounded-lg hover:shadow-lg hover:shadow-yellows whitespace-nowrap"
+                  className="p-2 text-white rounded-lg  hover:bg-yellows hover:text-black hover:shadow-lg hover:shadow-yellows whitespace-nowrap"
                 >
                   Privacy Policy
                 </a>
@@ -239,8 +239,8 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-        <div className="py-7 border-t border-gray-200">
-          <div className="flex items-center justify-center flex-col lg:justify-between lg:flex-row">
+        <div className="border-t border-gray-200 py-7">
+          <div className="flex flex-col items-center justify-center lg:justify-between lg:flex-row">
             <span className="text-sm text-white ">
               ©<a href="https://pagedone.io/">pagedone</a>2024, All rights
               reserved.

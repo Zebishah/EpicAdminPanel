@@ -35,6 +35,7 @@ import ProfileSettings from "./Modules/ProfileSettings";
 import ProfileInfo from "./Modules/ProfileInfo";
 import ChangePassword from "./Modules/ChangePassword";
 import LoginFrom from "./Modules/LoginFrom";
+import EditTour from "./Modules/EditTour";
 
 function App() {
   return (
@@ -49,6 +50,7 @@ function App() {
             <div className=" -ml-20 xl:ml-10 w-[98%] xl:w-[78%] flex mt-14 mr-4 md:mr-0">
               <Routes>
                 <Route path="/AddHotel" element={<AddHotel />} />
+                <Route path="/EditTour" element={<EditTour />} />
                 <Route
                   path="/AddServiceIternaries"
                   element={<AddServiceIternaries />}

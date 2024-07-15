@@ -6,7 +6,6 @@ import { IoMdCash } from "react-icons/io";
 import { MdReviews } from "react-icons/md";
 import { IoIosNotifications } from "react-icons/io";
 import { IoBookSharp } from "react-icons/io5";
-import { FaBullhorn } from "react-icons/fa";
 import { FaDatabase } from "react-icons/fa";
 import { MdMessage } from "react-icons/md";
 import { IoLogOutSharp } from "react-icons/io5";
@@ -30,34 +29,34 @@ const SideBar = () => {
         Open ? "expanded" : "collapsed"
       }`}
     >
-      <div className="flex-col gap-y-2 justify-center items-center p-2 hidden xl:flex">
-        <img src={image} alt="image" className="rounded-full w-16 h-16" />
-        <div className="flex flex-col justify-center items-center ">
-          <h2 className="text-yellows text-lg font-Lexend">Zohaib Haider</h2>
-          <p className="text-yellows text-sm font-radios">Administrator</p>
+      <div className="flex-col items-center justify-center hidden p-2 gap-y-2 xl:flex">
+        <img src={image} alt="image" className="w-16 h-16 rounded-full" />
+        <div className="flex flex-col items-center justify-center ">
+          <h2 className="text-lg text-yellows font-Lexend">Zohaib Haider</h2>
+          <p className="text-sm text-yellows font-radios">Administrator</p>
         </div>
       </div>
 
-      <div className="flex flex-col gap-y-3 justify-start items-start xl:justify-center xl:items-start">
+      <div className="flex flex-col items-start justify-start gap-y-3 xl:justify-center xl:items-start">
         {!Open && (
           <GiHamburgerMenu
-            className="text-yellows text-xl flex xl:hidden "
+            className="flex text-xl text-yellows xl:hidden "
             size={20}
             onClick={openMenu}
           />
         )}
         {Open && (
           <ImCross
-            className="text-yellows text-xl flex xl:hidden ml-20"
+            className="flex ml-20 text-xl text-yellows xl:hidden"
             size={20}
             onClick={closeMenu}
           />
         )}
         <Link to={"/Dashboard"}>
-          <div className="flex gap-x-0 md:gap-x-2 items-center transition-all duration-500 ease-in-out">
+          <div className="flex items-center transition-all duration-500 ease-in-out gap-x-0 md:gap-x-2">
             <FontAwesomeIcon
               icon={faDashboard}
-              className="text-yellows text-lg mt-3 md:mt-0"
+              className="mt-3 text-lg text-yellows md:mt-0"
             />
             <h3
               className={`text-yellows text-sm xl:text-lg font-Lexend p-3 mt-3 md:mt-0 transition-all duration-500 ease-in-out xl:opacity-100 ${
@@ -68,21 +67,9 @@ const SideBar = () => {
             </h3>
           </div>
         </Link>
-        <Link to={"/CatalogOptions"}>
-          <div className="flex gap-x-0 md:gap-x-2 items-center transition-all duration-500 ease-in-out">
-            <GrCatalog size={20} className="text-yellows mt-3 md:mt-0" />
-            <h3
-              className={`text-yellows text-sm xl:text-lg font-Lexend p-3 mt-3 md:mt-0 transition-all duration-500 ease-in-out xl:opacity-100 ${
-                Open ? "opacity-100" : "opacity-0"
-              }`}
-            >
-              Catalog
-            </h3>
-          </div>
-        </Link>
         <Link to={"/PaymentOptions"}>
-          <div className="flex gap-x-0 md:gap-x-2 items-center transition-all duration-500 ease-in-out">
-            <IoMdCash size={20} className="text-yellows text-lg mt-3 md:mt-0" />
+          <div className="flex items-center transition-all duration-500 ease-in-out gap-x-0 md:gap-x-2">
+            <IoMdCash size={20} className="mt-3 text-lg text-yellows md:mt-0" />
             <h3
               className={`text-yellows text-sm xl:text-lg font-Lexend p-3 mt-3 md:mt-0 transition-all duration-500 ease-in-out xl:opacity-100 ${
                 Open ? "opacity-100" : "opacity-0"
@@ -93,10 +80,10 @@ const SideBar = () => {
           </div>
         </Link>
         <Link to={"/Reviews"}>
-          <div className="flex gap-x-0 md:gap-x-2 items-center transition-all duration-500 ease-in-out">
+          <div className="flex items-center transition-all duration-500 ease-in-out gap-x-0 md:gap-x-2">
             <MdReviews
               size={20}
-              className="text-yellows text-lg mt-3 md:mt-0"
+              className="mt-3 text-lg text-yellows md:mt-0"
             />
             <h3
               className={`text-yellows text-sm xl:text-lg font-Lexend p-3 mt-3 md:mt-0 transition-all duration-500 ease-in-out xl:opacity-100 ${
@@ -108,10 +95,10 @@ const SideBar = () => {
           </div>
         </Link>
         <Link to={"/Notification"}>
-          <div className="flex gap-x-0 md:gap-x-2 items-center transition-all duration-500 ease-in-out">
+          <div className="flex items-center transition-all duration-500 ease-in-out gap-x-0 md:gap-x-2">
             <IoIosNotifications
               size={20}
-              className="text-yellows text-lg mt-3 md:mt-0"
+              className="mt-3 text-lg text-yellows md:mt-0"
             />
             <h3
               className={`text-yellows text-sm xl:text-lg font-Lexend p-3 mt-3 md:mt-0 transition-all duration-500 ease-in-out xl:opacity-100 ${
@@ -123,10 +110,10 @@ const SideBar = () => {
           </div>
         </Link>
         <Link to={"/BookingOptions"}>
-          <div className="flex gap-x-0 md:gap-x-2 items-center transition-all duration-500 ease-in-out">
+          <div className="flex items-center transition-all duration-500 ease-in-out gap-x-0 md:gap-x-2">
             <IoBookSharp
               size={20}
-              className="text-yellows text-lg mt-3 md:mt-0"
+              className="mt-3 text-lg text-yellows md:mt-0"
             />
             <h3
               className={`text-yellows text-sm xl:text-lg font-Lexend p-3 mt-3 md:mt-0 transition-all duration-500 ease-in-out xl:opacity-100 ${
@@ -138,10 +125,10 @@ const SideBar = () => {
           </div>
         </Link>
         <Link to={"/DatabaseOptions"}>
-          <div className="flex gap-x-0 md:gap-x-2 items-center transition-all duration-500 ease-in-out">
+          <div className="flex items-center transition-all duration-500 ease-in-out gap-x-0 md:gap-x-2">
             <FaDatabase
               size={20}
-              className="text-yellows text-lg mt-3 md:mt-0"
+              className="mt-3 text-lg text-yellows md:mt-0"
             />
             <h3
               className={`text-yellows text-sm xl:text-lg font-Lexend p-3 mt-3 md:mt-0 transition-all duration-500 ease-in-out xl:opacity-100 ${
@@ -152,26 +139,11 @@ const SideBar = () => {
             </h3>
           </div>
         </Link>
-        <Link to={"/Update"}>
-          <div className="flex gap-x-0 md:gap-x-2 items-center transition-all duration-500 ease-in-out">
-            <FaBullhorn
-              size={20}
-              className="text-yellows text-lg mt-3 md:mt-0"
-            />
-            <h3
-              className={`text-yellows text-sm xl:text-lg font-Lexend p-3 mt-3 md:mt-0 transition-all duration-500 ease-in-out xl:opacity-100 ${
-                Open ? "opacity-100" : "opacity-0"
-              }`}
-            >
-              Updates
-            </h3>
-          </div>
-        </Link>
         <Link to={"/Messages"}>
-          <div className="flex gap-x-0 md:gap-x-2 items-center transition-all duration-500 ease-in-out">
+          <div className="flex items-center transition-all duration-500 ease-in-out gap-x-0 md:gap-x-2">
             <MdMessage
               size={20}
-              className="text-yellows text-lg mt-3 md:mt-0"
+              className="mt-3 text-lg text-yellows md:mt-0"
             />
             <h3
               className={`text-yellows text-sm xl:text-lg font-Lexend p-3 mt-3 md:mt-0 transition-all duration-500 ease-in-out xl:opacity-100 ${
@@ -182,11 +154,23 @@ const SideBar = () => {
             </h3>
           </div>
         </Link>
+        <Link to={"/CatalogOptions"}>
+          <div className="flex items-center transition-all duration-500 ease-in-out gap-x-0 md:gap-x-2">
+            <GrCatalog size={20} className="mt-3 text-yellows md:mt-0" />
+            <h3
+              className={`text-yellows text-sm xl:text-lg font-Lexend p-3 mt-3 md:mt-0 transition-all duration-500 ease-in-out xl:opacity-100 ${
+                Open ? "opacity-100" : "opacity-0"
+              }`}
+            >
+              Catalog
+            </h3>
+          </div>
+        </Link>
         <Link to={"/Services"}>
-          <div className="flex gap-x-0 md:gap-x-2 items-center transition-all duration-500 ease-in-out">
+          <div className="flex items-center transition-all duration-500 ease-in-out gap-x-0 md:gap-x-2">
             <IoLogOutSharp
               size={20}
-              className="text-yellows text-lg mt-3 md:mt-0"
+              className="mt-3 text-lg text-yellows md:mt-0"
             />
             <h3
               className={`text-yellows text-sm xl:text-lg font-Lexend p-3 mt-3 md:mt-0 transition-all duration-500 ease-in-out xl:opacity-100 ${

@@ -31,7 +31,7 @@ const CatalogOptions = () => {
             </div>
           </div>
         </Link>
-        <Link to={"/AddHotel"}>
+        <Link to={"/EditTour"}>
           <div className="benefit-card bg-fade-black rounded-md shadow-lg p-6 flex flex-col items-center gap-y-3">
             <FontAwesomeIcon
               icon={faHotel}
@@ -39,7 +39,7 @@ const CatalogOptions = () => {
             ></FontAwesomeIcon>
             <div className="flex flex-col gap-y-0 justify-center items-center">
               <h3 className="text-xl font-semibold mb-2 text-yellows text-center">
-                Add Hotel
+                Edit Tour
               </h3>
               <p className="text-white text-center">
                 Thrilling adventures await! Join us for adrenaline-pumping
@@ -73,7 +73,7 @@ const CatalogOptions = () => {
             ></FontAwesomeIcon>
             <div className="flex flex-col gap-y-0 justify-center items-center">
               <h3 className="text-xl font-semibold mb-2 text-yellows text-center">
-                Add Room
+                Edit Transport
               </h3>
               <p className="text-white text-center">
                 Thrilling adventures await! Join us for adrenaline-pumping
